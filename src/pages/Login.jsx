@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Google from "../img/google.png"
 import Facebook from "../img/fb.png"
 import imgUrl from "../img/BG.jpg"
