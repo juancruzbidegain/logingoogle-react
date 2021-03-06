@@ -1,14 +1,22 @@
 import React from 'react'
 import Google from "../img/google.png"
 import Facebook from "../img/fb.png"
+import imgUrl from "../img/BG.jpg"
+
+
 
 const Login = () => {
+    
+    const imgBg = {
+        backgroundImage: 'url(' + imgUrl + ')',
+        backgroundPosition: "center center"
+    }
+    
     return (
         <div className="container w-75 bg-primary mt-5 rounded shadow">
             <div className="row align-items-center align-items-stretch">
-                <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg"></div>
+                <div className="col d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded bg" style={imgBg}></div>
                 <div className="col bg-white p-5 col-lg-7 col-xl-6 rounded-end">
-                    <div className="text-end">Logo</div>
                     <h2 className="fw-bold text-center pt-5 mb-5">Bienvenido</h2>
                     
                     <form action="#">
