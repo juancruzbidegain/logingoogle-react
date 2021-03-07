@@ -1,13 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Google from "../img/google.png"
 import Facebook from "../img/fb.png"
 import imgUrl from "../img/BG.jpg"
 
+import 'firebase/auth'
+import { useFirebaseApp } from 'reactfire'
+
+
+
+
+
 
 
 const Login = () => {
+
+    const firebase = useFirebaseApp()
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     
+    const submit = async () => {
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
+    }
+
     const imgBg = {
         backgroundImage: 'url(' + imgUrl + ')',
         backgroundPosition: "center center"
@@ -23,11 +40,11 @@ const Login = () => {
                     <form action="#">
                         <div className="mb-4">
                             <label htmlFor="email" className="form-label">Correo Electronico</label>
-                            <input type="email" className="form-control" name="email" id=""/>
+                            <input type="email" className="form-control" name="email" id="" onChange={(e) => setEmail(e.target.value)}/>
                         </div>
                         <div className="mb-4">
                             <label htmlFor="password" className="form-label">Password</label>
-                            <input type="password" className="form-control" name="password" id=""/>
+                            <input type="password" className="form-control" name="password" id="" onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className="mb-4 form-check">
                             <input type="checkbox" className="form-check-input" name="connected" id=""/>
@@ -35,7 +52,7 @@ const Login = () => {
                         </div>
 
                         <div className="d-grid ">
-                            <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
+                            <button type="submit" className="btn btn-primary w-100" onClick={submit}>Iniciar Sesión</button>
                         </div>
 
                         <div className="my-3">
