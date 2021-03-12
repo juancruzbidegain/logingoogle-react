@@ -23,11 +23,10 @@ const Login = () => {
     backgroundPosition: "center center",
   };
 
-
-  const responseGoogle = response => {
-      console.log(response)
-      console.log(response.profileObj)
-  }
+  const responseGoogle = (response) => {
+    console.log(response);
+    console.log(response.profileObj);
+  };
 
   return (
     <div className="container w-75 bg-primary mt-5 rounded shadow">
@@ -118,10 +117,15 @@ const Login = () => {
                 </button>
               </div>
               <div className="col">
-                <button
-                  className="btn btn-outline-danger w-100 my-1"
-                  type="button"
-                >
+              <GoogleLogin
+                  clientId="346450705262-btqsjqmd23skcv54l90oahmfc2hbv8js.apps.googleusercontent.com"
+                  render={(renderProps) => (
+                    <button
+                      onClick={renderProps.onClick}
+                      disabled={renderProps.disabled}
+                      className="btn btn-outline-danger w-100 my-1"
+                      type="button"
+                    >
                   <div className="row align-items-center">
                     <div className="d-none d-md-block col-3 col-lg-4 col-xl-4 col-xxl-3 text-center">
                       <img src={Google} width="32px" alt="" />
@@ -129,19 +133,17 @@ const Login = () => {
                     <div className="col-12 col-md-9 col-lg-8 col-xl-8 col-xxl-9 text-center">
                       Google
                     </div>
-                   
-                   
-                    
                   </div>
                 </button>
-                <br/>
-                <GoogleLogin
-                      clientId="346450705262-btqsjqmd23skcv54l90oahmfc2hbv8js.apps.googleusercontent.com"
-                      buttonText="Login"
-                      onSuccess={responseGoogle}
-                      onFailure={responseGoogle}
-                      cookiePolicy={"single_host_origin"}
-                    />
+                  )}
+                  buttonText="Login"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
+                />
+               
+                <br />
+              
               </div>
             </div>
           </div>
