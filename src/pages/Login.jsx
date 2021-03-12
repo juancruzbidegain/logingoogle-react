@@ -26,6 +26,7 @@ const Login = () => {
 
   const responseGoogle = response => {
       console.log(response)
+      console.log(response.profileObj)
   }
 
   return (
@@ -128,16 +129,19 @@ const Login = () => {
                     <div className="col-12 col-md-9 col-lg-8 col-xl-8 col-xxl-9 text-center">
                       Google
                     </div>
-                    <GoogleLogin
-                      clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+                   
+                   
+                    
+                  </div>
+                </button>
+                <br/>
+                <GoogleLogin
+                      clientId="346450705262-btqsjqmd23skcv54l90oahmfc2hbv8js.apps.googleusercontent.com"
                       buttonText="Login"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
                       cookiePolicy={"single_host_origin"}
                     />
-                    ,
-                  </div>
-                </button>
               </div>
             </div>
           </div>
